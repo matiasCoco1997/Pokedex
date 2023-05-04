@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+.formLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.formLogin input{
+    width: 100%;
+    margin-top: 10px;
+    height: 30px;
+    border: none;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.formLogin button{
+    width: 60%;
+    margin-top: 10px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+}
+
+.logo{
+    width: 20%;
+    height: 60px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img{
+    height: 100%;
+}
+
+h1{
+    width: 80%;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.imgPokemon{
+    background-color: #444444;
+    padding: 20px;
+    height: 300px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgPokemon img{
+    height: 100%;
+    max-width: 400px;
+}
+
+.contenedorPokemon div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.contenedorPokemon div h2{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 80%;
+    margin: 0px;
+}
+
+.contenedorPokemon div p{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.imgTipoPokemon{
+    width: 20%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgTipoPokemon img{
+    height: 50px;
+}
