@@ -1,22 +1,22 @@
 <?php
 echo "
 
-<head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' href='http://localhost/Pokedex/src/css/style.css'>
-    <link rel='icon' href='src/images/logo-pokebola.png' type='image/png'>
-    <script src='https://kit.fontawesome.com/dc0786cc41.js' crossorigin='anonymous'></script>
+        <head>
+            <meta charset='UTF-8'>
+            <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <link rel='stylesheet' href='http://localhost/Pokedex/src/css/style.css'>
+            <link rel='icon' href='../../Pokedex/src/images/logo-pokebola.png' type='image/png'>
+            <script src='https://kit.fontawesome.com/dc0786cc41.js' crossorigin='anonymous'></script>
+        
+            <title>Pokedex</title>
+        </head>
 
-    <title>Pokedex</title>
-</head>
+        <header>
 
-<header>
-
-            <a class='logo' href='pokemon.php'><img src='src/images/logo-pokebola.png' alt='alt'></a>
+            <a class='logo' href='../../Pokedex/index.php'><img src='../../Pokedex/src/images/logo-pokebola.png' alt='alt'></a>
             <?php
-            //PONER LA DIRECCION DEL INICIO en pokemon.php
+                //PONER LA DIRECCION DEL INICIO en pokemon.php
             ?>
             <h1>Pokédex</h1>
 
@@ -35,4 +35,4 @@ echo "
             </form>
 
         </header>
-     ";
+";

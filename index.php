@@ -92,7 +92,7 @@
 
                 <article class="nuevoPokemonContenedor">
 
-                    <button class="nuevoPokemon" type="submit" name="nuevoPokemon">Nuevo Pokemon</button>
+                    <a href="components/newPokemon.php" class="nuevoPokemon" type="submit" name="nuevoPokemon">Nuevo Pokemon</a>
 
                 </article>
 
