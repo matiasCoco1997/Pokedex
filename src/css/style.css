@@ -12,6 +12,10 @@ body{
     background-position-x: 250px;
 }
 
+main{
+    min-height: 500px;
+}
+/**************************************************      HEADER      **************************************************/
 header{
     display: flex;
     flex-wrap: wrap;
@@ -23,7 +27,7 @@ header{
 }
 
 
-header div{
+header a{
     padding:10px;
     display: flex;
     align-items: center;
@@ -31,7 +35,7 @@ header div{
     cursor: pointer;
 }
 
-header div:hover{
+header a:hover{
     background-color: red;
     border-radius: 5px;
 }
@@ -101,7 +105,149 @@ h1{
     text-align: center;
     font-size: 2.5em;
 }
+/**************************************************      CONTENIDO INDEX PHP      **************************************************/
+.buscadorDePokemones{
+    width: 100%;
+    padding: 3%;
+    margin-top: 40px;
+}
 
+.buscadorDePokemones article{
+    width: 100%;
+}
+
+.buscadorDePokemones form{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscadorDePokemones form input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    background-color: rgba(255, 255, 255, 0.76);
+    border: 3px solid red;
+    outline: none;
+}
+
+.buscadorDePokemones form input::placeholder{
+    color: black;
+    font-weight: bold;
+}
+
+.buscadorDePokemones form button{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    background-color: #ea5454;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.buscadorDePokemones form button:hover{
+    background-color: red;
+}
+
+.tablaDePokemones{
+    padding: 3%;
+    min-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.tablaDePokemones article{
+    width: 100%;
+}
+
+.tablaDePokemones h2{
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    color: white;
+    background-color: red;
+}
+
+.tablaDePokemones table{
+    border-collapse: collapse;
+    border: 2px solid red;
+    width: 100%;
+}
+
+.pokemonImg img{
+    max-width: 40px;
+}
+
+.tipo img{
+    max-width: 20px;
+}
+
+th, td {
+    border: 2px solid red;
+    padding: 5px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+}
+
+th{
+    background-color: black;
+    color: white;
+    height: 60px;
+}
+
+.fila{
+    height: 90px;
+}
+
+td a{
+    text-decoration: none;
+    color: black;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.update:hover{
+    color: #0000fa;
+}
+
+.delete:hover{
+    color: red;
+}
+
+.nuevoPokemonContenedor{
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.nuevoPokemon{
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nuevoPokemon:hover{
+    background-color: red;
+}
+
+/**************************************************      CONTENIDO POKEMON PHP      **************************************************/
 .imgPokemon{
     background-color: rgba(0, 0, 0, 0.75);
     border: red solid 5px;
@@ -117,7 +263,6 @@ h1{
     justify-content: center;
     max-width: 500px;
     margin-bottom: 10px;
-
 }
 
 .imgPokemon img{
@@ -160,7 +305,7 @@ h1{
 .imgTipoPokemon img{
     height: 50px;
 }
-
+/**************************************************      FOOTER      **************************************************/
 footer{
     background-color: black;
     color: white;
@@ -180,6 +325,71 @@ footer h4{
 
 /**************************************************      PANTALLAS MEDIANAS      **************************************************/
 @media (min-width: 768px) {
+
+    .buscadorDePokemones{
+        width: 100%;
+        padding: 3%;
+        margin-top: 20px;
+    }
+
+    .buscadorDePokemones article{
+        width: 100%;
+    }
+
+    .buscadorDePokemones form{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .buscadorDePokemones form input{
+        width: 70%;
+        padding: 10px;
+        border: 3px solid red;
+        border-radius: 1em 0em 0em 1em;
+        background-color: white;
+    }
+
+    .buscadorDePokemones form button{
+        width: 30%;
+        padding: 10px;
+        border: 3px solid red;
+        border-radius: 0em 1em 1em 0em;
+        background-color: red;
+    }
+
+    .buscadorDePokemones form button:hover{
+        background-color: #ea5454;
+        border: 3px solid #ea5454;
+    }
+
+    .tablaDePokemones{
+        width: 100%;
+    }
+
+    .tablaDePokemones article{
+        width: 100%;
+    }
+
+    .pokemonImg img{
+        max-width: 80px;
+    }
+
+    .tipo img{
+        max-width: 40px;
+    }
+
+    td a{
+        display: inline-block;
+        width: 30%;
+    }
+
+    td a i{
+        font-size: 22px;
+    }
+
     footer{
         display: flex;
         flex-wrap: wrap;
