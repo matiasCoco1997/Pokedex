@@ -1,9 +1,3 @@
-
-<?php
-
-?>
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -12,31 +6,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="http://localhost/Pokedex/src/css/style.css">
+        <link rel="icon" href="src/images/logo-pokebola.png" type="image/png">
+        <script src="https://kit.fontawesome.com/dc0786cc41.js" crossorigin="anonymous"></script>
+
         <title>Pokedex</title>
     </head>
 
     <body>
+        <?php
+            include("components/header.php");
+        ?>
+
         <main>
-
-            <header>
-
-                <span class="logo"><img src="src/images/logo-pokebola.png"></span>
-
-                <h1>Pokédex</h1>
-
-                <form class="formLogin" method="POST" enctype="application/x-www-form-urlencoded" action="">
-
-                    <label>Login</label>
-
-                    <input name="user" placeholder="Usuario">
-
-                    <input name="password" placeholder="Contraseña">
-
-                    <button type="submit" name="submit">Ingresar</button>
-
-                </form>
-
-            </header>
 
             <section>
 
@@ -86,5 +67,10 @@
                 </article>
             </section>
         </main>
+
+        <?php
+            include("components/footer.php");
+        ?>
+
     </body>
 </html>
