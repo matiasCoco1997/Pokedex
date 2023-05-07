@@ -13,7 +13,7 @@ include("header.php");
 
         <article>
 
-            <form method='POST' enctype='application/x-www-form-urlencoded' action='../index.php'>
+            <form method='POST' enctype='multipart/form-data' action='newPokemon.php'>
 
                 <div>
                     <label for="img-Pokemon">Ingrese la imagen del Pokemon:</label>
@@ -23,21 +23,28 @@ include("header.php");
                 <div>
                     <label for="img-tipo-Pokemon">Seleccine el tipo de Pokemon:</label>
                     <select id="opcion" name="opcion" required>
-                        <option value="1" selected>Fuego</option>
-                        <option value="2">Planta</option>
-                        <option value="3">Agua</option>
-                        <option value="4">Eléctrico</option>
+
+                        <option value="../../Pokedex/src/images/Tipo_fuego.png" selected>Fuego</option>
+                        <option value="../../Pokedex/src/images/Tipo_planta.png">Planta</option>
+                        <option value="../../Pokedex/src/images/Tipo_agua.png">Agua</option>
+                        <option value="../../Pokedex/src/images/Tipo_electrico.png">Eléctrico</option>
+
                     </select>
                 </div>
 
                 <div>
                     <label for="img-numero-Pokemon">Ingrese el número de Pokemon:</label>
-                    <input type="number" placeholder="Ingrese el número del Pokemon" name="numero-Pokemon" required>
+                    <input type="number" placeholder="Ingrese el número del Pokemon" name="img-numero-Pokemon" required>
                 </div>
 
                 <div>
                     <label for="nombre-Pokemon">Ingrese nombre del Pokemon</label>
                     <input type="text" placeholder="Ingrese el nombre del Pokemon" name="nombre-Pokemon" required>
+                </div>
+
+                <div>
+                    <label for="descripcion-Pokemon">Ingrese la descripción del Pokemon</label>
+                    <input type="text" placeholder="Ingrese la descripción del Pokemon" name="descripcion-Pokemon" required>
                 </div>
 
                 <button type="submit" name="newPokemon">Crear Pokemon</button>
@@ -59,6 +66,7 @@ include("footer.php");
 
 
 
+
 <?php
 //Establecer parametros para la conexion a la base de datos
 $serverName = "localhost";
@@ -74,18 +82,36 @@ if (!$conexion) {
     die("La conexión falló: " . mysqli_connect_error());
 }
 
-$imagen = $_POST['img-Pokemon'];
-$tipo = $_POST['opcion'];
-$numero = $_POST['numero-Pokemon'];
-$nombre = $_POST['nombre-Pokemon'];
+//FALTA LEVANTAR LA OPCION DE LA IMAGEN (para pasarle la ruta de un archivo que yo suba)
+$tipo = $_POST['opcion'] ?? $_POST['opcion'];
+$numero = $_POST['img-numero-Pokemon'] ?? $_POST['img-numero-Pokemon'];
+$nombre = $_POST['nombre-Pokemon'] ??$_POST['nombre-Pokemon'];
+$descripcion = $_POST['descripcion-Pokemon'] ?? $_POST['descripcion-Pokemon'];
 $estado = 1;
 
-// Construir la consulta SQL
-$sql = "INSERT INTO pokemones (`imagen`, `nombre`, `numero`, `tipo`, `estado`) VALUES ( `$imagen`, `$nombre`, `$numero`, `$tipo`, `$estado`)";
+$directorio = "../../Pokedex/src/images/";
 
-$conexion->query($sql);
-header('Location: ../index.php');
+if (isset($_FILES["img-Pokemon"])) {
+
+    $imagen = $_FILES["img-Pokemon"];
+
+    $ruta_destino = $directorio  . basename($_FILES["img-Pokemon"]["name"]);
+
+    if (move_uploaded_file($imagen["tmp_name"], $ruta_destino)) {
+
+        // Construir la consulta SQL
+        $sql = "INSERT INTO pokemones (`imagen`, `nombre`, `numero`, `tipo`, `descripcion` ,`estado`) VALUES ( '$ruta_destino', '$nombre', '$numero', '$tipo', '$descripcion', '$estado')";
+
+        $conexion->query($sql);
+
+        header("Location: ../index.php");
+
+    } else {
+        echo "<p>Ha ocurrido un error al subir la imagen.</p>";
+    }
+}
 
 // Cerrar la conexión con la base de datos
 mysqli_close($conexion);
-?>
+
+

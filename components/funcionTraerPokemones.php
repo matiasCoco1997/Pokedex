@@ -24,22 +24,23 @@ foreach ($resultado as $elemento) {
 
         echo "<tr class='fila'>";
 
-        echo $elemento["IDPokemon"];
+        echo "<td class='pokemonImg'><img src=" . $elemento["imagen"] . " alt=" . $elemento["nombre"] . "></td>";
 
-            echo "<td class='pokemonImg'><img src=" . $elemento["imagen"] . " alt=" . $elemento["nombre"] . "></td>";
+        echo "<td class='tipo'><img src=" . $elemento["tipo"] . " alt='Tipo_de_pokemon'></td>";
 
-            echo "<td class='tipo'><img src=" . $elemento["tipo"] . " alt='Tipo_de_pokemon'></td>";
+        echo "<td class='tipo'>" . $elemento["numero"] . "</td>";
 
-            echo "<td class='tipo'>" . $elemento["numero"] . "</td>";
+        echo "<td class='tipo'>" . $elemento["nombre"] . "</td>";
 
-            echo "<td class='tipo'>" . $elemento["nombre"] . "</td>";
+        echo "<td class='acciones'>";
 
-            echo "<td class='acciones'>";
+        echo "<a href='components/updatePokemon.php?id=". $elemento["IDPokemon"] . "' ><i class='update fa-solid fa-pen-to-square'></i></a>";
 
-                echo "<a href='components/updatePokemon.php?id=". $elemento["IDPokemon"] . "' ><i class='update fa-solid fa-pen-to-square'></i></a>";
+        echo "<a href='components/deletePokemon.php?id=". $elemento["IDPokemon"] . "' ><i class='delete fa-solid fa-trash'></i></a>";
 
-                echo "<a href='components/deletePokemon.php?id=". $elemento["IDPokemon"] . "' ><i class='delete fa-solid fa-trash'></i></a>";
-            echo '</td>';
+        echo "<a href='components/Pokemon.php?id=". $elemento["IDPokemon"] . "' ><i class='fa-solid fa-eye'></i></a>";
+
+        echo '</td>';
 
         echo ' </tr>';
     }
@@ -48,4 +49,3 @@ foreach ($resultado as $elemento) {
 
 // Cerrar la conexión con la base de datos
 mysqli_close($conexion);
-?>
