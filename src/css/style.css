@@ -218,8 +218,12 @@ th{
 td a{
     text-decoration: none;
     color: black;
-    margin: 5px;
     cursor: pointer;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
 }
 
 .update:hover{
@@ -469,6 +473,7 @@ footer h4{
     td a{
         display: inline-block;
         width: 30%;
+        margin: 0px;
     }
 
     td a i{

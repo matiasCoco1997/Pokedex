@@ -1,3 +1,35 @@
+<?php
+
+
+//Establecer parametros para la conexion a la base de datos
+$serverName = "localhost";
+$username = "root";
+$password = "";
+$database = "pokedex";
+
+// Establecer la conexión con la base de datos
+$conexion = mysqli_connect($serverName, $username, $password, $database);
+
+// Verificar si la conexión es exitosa
+if (!$conexion) {
+    die("La conexión falló: " . mysqli_connect_error());
+}
+
+// Construir la consulta SQL
+$sql = "SELECT * FROM Pokemones";
+
+$id = $_GET['id'];
+
+// Ejecutar la consulta y obtener los resultados
+$resultado = $conexion->query($sql);
+
+
+
+// Cerrar la conexión con la base de datos
+mysqli_close($conexion);
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -14,62 +46,50 @@
 
     <body>
         <?php
-            include("components/header.php");
+            include("../../Pokedex/components/header.php");
         ?>
 
         <main>
 
             <section>
+                <?php
+                    foreach ($resultado as $elemento) {
 
-                <article class="contenedorPokemon">
+                    if($elemento["IDPokemon"] == $id){
 
-                    <span class="imgPokemon">
-                        <img src="../src/images/charmander.png" alt="img pokemon">
-                    </span>
+                        echo "<section>";
 
-                    <div>
+                            echo "<article class='contenedorPokemon'>";
 
-                        <span class="imgTipoPokemon">
-                            <img src="../src/images/Tipo_fuego.png">
-                        </span>
+                                echo "<span class='imgPokemon'>";
+                                    echo"<img src=" . $elemento["imagen"] . " alt=' " . $elemento["nombre"] . "'>";
+                                echo "</span>";
 
-                        <h2>1 Charmander</h2>
+                                echo "<div>";
 
-                        <p class="descripcionPokemon">
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                            DESCRIPCION DEL POKEMON
-                        </p>
+                                    echo "<span class='imgTipoPokemon'>";
+                                        echo"<img src=" . $elemento["tipo"] . " alt='tipo_de_pokemon'>";
+                                    echo "</span>";
 
-                    </div>
+                                    echo "<h2>" . $elemento["numero"] . " " . $elemento["nombre"] . "</h2>";
 
-                </article>
+                                    echo "<p class='descripcionPokemon'>" . $elemento["descripcion"] ." </p>";
+
+                                echo "</div>";
+
+                            echo "</article>";
+
+                        echo "</section>";
+                    }
+
+                }
+                ?>
             </section>
+
         </main>
 
         <?php
-            include("components/footer.php");
+            include("../../Pokedex/components/footer.php");
         ?>
 
     </body>
