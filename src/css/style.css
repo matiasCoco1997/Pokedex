@@ -378,6 +378,7 @@ td a{
     border:none;
     font-weight: bold;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 /**************************************************      FOOTER      **************************************************/
@@ -452,6 +453,7 @@ footer h4{
 
     .tablaDePokemones{
         width: 100%;
+        min-height: 550px;
     }
 
     .tablaDePokemones article{
