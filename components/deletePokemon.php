@@ -24,7 +24,7 @@ foreach ($resultado as $elemento) {
 
     if($elemento["IDPokemon"] == $id ){
 
-        $sql = "UPDATE pokemones SET estado = 0 WHERE IDPokemon =" . "$id";
+        $sql = "UPDATE pokemones SET isEnabled = 0 WHERE IDPokemon =" . "$id";
         $conexion->query($sql);
 
         header('Location: ../index.php');

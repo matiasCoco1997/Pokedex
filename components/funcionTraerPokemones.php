@@ -20,7 +20,7 @@ $resultado = $conexion->query($sql);
 
 foreach ($resultado as $elemento) {
 
-    if($elemento["estado"] == 1){
+    if($elemento["isEnabled"] == 1){
 
         echo "<tr class='fila'>";
 

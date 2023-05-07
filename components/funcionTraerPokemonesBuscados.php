@@ -13,15 +13,13 @@
     }
 
     // Obtener el término de búsqueda ingresado por el usuario
-    $busqueda = $_POST["busqueda"];
+    $busqueda = $_GET["itemABuscar"];
 
     // Construir la consulta SQL
-    $sql = "SELECT * FROM nombres WHERE nombre LIKE '%$busqueda%'";
+    $sql = "SELECT * FROM pokemones WHERE (numero LIKE '%$busqueda%' OR tipo LIKE '%$busqueda%' OR nombre LIKE '%$busqueda%') AND isEnabled = true";
 
     // Ejecutar la consulta y obtener los resultados
     $resultado = $conexion->query($sql);
-
-    echo $resultado;
 
     foreach ($resultado as $elemento) {
 

@@ -7,13 +7,15 @@
             include("components/header.php");
         ?>
 
+
+
         <main>
 
             <section class="buscadorDePokemones">
 
                 <article>
 
-                    <form method='POST' enctype='application/x-www-form-urlencoded' action='index.php'>
+                    <form method='GET' enctype='application/x-www-form-urlencoded' action='index.php'>
                         <input type="text" placeholder="Ingrese el nombre, tipo o número de Pokemon" name="itemABuscar" required>
 
                         <button type="submit" name="busqueda">¿Quién es este Pokemon?</button>
@@ -43,7 +45,15 @@
 
                         <tbody>
                             <?php
-                                include ('components/funcionTraerPokemones.php');
+
+                            if(empty($_REQUEST)){
+                                include('components/funcionTraerPokemones.php');
+                            }
+
+                            if(isset($_GET["itemABuscar"])){
+                                include('components/funcionTraerPokemonesBuscados.php');
+                            }
+
                             ?>
                         </tbody>
 

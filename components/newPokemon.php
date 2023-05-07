@@ -87,7 +87,7 @@ $tipo = $_POST['opcion'] ?? $_POST['opcion'];
 $numero = $_POST['img-numero-Pokemon'] ?? $_POST['img-numero-Pokemon'];
 $nombre = $_POST['nombre-Pokemon'] ??$_POST['nombre-Pokemon'];
 $descripcion = $_POST['descripcion-Pokemon'] ?? $_POST['descripcion-Pokemon'];
-$estado = 1;
+$isEnabled = 1;
 
 $directorio = "../../Pokedex/src/images/";
 
@@ -100,7 +100,7 @@ if (isset($_FILES["img-Pokemon"])) {
     if (move_uploaded_file($imagen["tmp_name"], $ruta_destino)) {
 
         // Construir la consulta SQL
-        $sql = "INSERT INTO pokemones (`imagen`, `nombre`, `numero`, `tipo`, `descripcion` ,`estado`) VALUES ( '$ruta_destino', '$nombre', '$numero', '$tipo', '$descripcion', '$estado')";
+        $sql = "INSERT INTO pokemones (`imagen`, `nombre`, `numero`, `tipo`, `descripcion` ,`isEnabled`) VALUES ( '$ruta_destino', '$nombre', '$numero', '$tipo', '$descripcion', '$estado')";
 
         $conexion->query($sql);
 
