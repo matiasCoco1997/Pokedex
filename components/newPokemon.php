@@ -100,7 +100,7 @@ if (isset($_FILES["img-Pokemon"])) {
     if (move_uploaded_file($imagen["tmp_name"], $ruta_destino)) {
 
         // Construir la consulta SQL
-        $sql = "INSERT INTO pokemones (`imagen`, `nombre`, `numero`, `tipo`, `descripcion` ,`isEnabled`) VALUES ( '$ruta_destino', '$nombre', '$numero', '$tipo', '$descripcion', '$estado')";
+        $sql = "INSERT INTO pokemones (`imagen`, `nombre`, `numero`, `tipo`, `descripcion` ,`isEnabled`) VALUES ( '$ruta_destino', '$nombre', '$numero', '$tipo', '$descripcion', '$isEnabled')";
 
         $conexion->query($sql);
 

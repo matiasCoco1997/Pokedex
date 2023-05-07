@@ -7,8 +7,6 @@
             include("components/header.php");
         ?>
 
-
-
         <main>
 
             <section class="buscadorDePokemones">
