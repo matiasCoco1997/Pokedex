@@ -17,35 +17,52 @@ $sql = "SELECT * FROM Pokemones";
 
 // Ejecutar la consulta y obtener los resultados
 $resultado = $conexion->query($sql);
+?>
+<h2> Listado de Pokemones </h2>
+<table>
+    <thead>
+    <tr>
+        <th> Imagen</th>
+        <th> Tipo</th>
+        <th> N°</th>
+        <th> Nombre</th>
+        <th> Acciones</th>
+    </tr>
+    </thead>
 
-foreach ($resultado as $elemento) {
+    <tbody>
+    <?php
+    foreach ($resultado as $elemento) {
 
-    if($elemento["isEnabled"] == 1){
+        if ($elemento["isEnabled"] == 1) {
 
-        echo "<tr class='fila'>";
+            echo "<tr class='fila'>";
 
-        echo "<td class='pokemonImg'><img src=" . $elemento["imagen"] . " alt=" . $elemento["nombre"] . "></td>";
+            echo "<td class='pokemonImg'><img src=" . $elemento["imagen"] . " alt=" . $elemento["nombre"] . "></td>";
 
-        echo "<td class='tipo'><img src=" . $elemento["tipo"] . " alt='Tipo_de_pokemon'></td>";
+            echo "<td class='tipo'><img src=" . $elemento["tipo"] . " alt='Tipo_de_pokemon'></td>";
 
-        echo "<td class='tipo'>" . $elemento["numero"] . "</td>";
+            echo "<td class='tipo'>" . $elemento["numero"] . "</td>";
 
-        echo "<td class='tipo'>" . $elemento["nombre"] . "</td>";
+            echo "<td class='tipo'>" . $elemento["nombre"] . "</td>";
 
-        echo "<td class='acciones'>";
+            echo "<td class='acciones'>";
 
-        echo "<a href='components/updatePokemon.php?id=". $elemento["IDPokemon"] . "' ><i class='update fa-solid fa-pen-to-square'></i></a>";
+            echo "<a href='components/updatePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='update fa-solid fa-pen-to-square'></i></a>";
 
-        echo "<a href='components/deletePokemon.php?id=". $elemento["IDPokemon"] . "' ><i class='delete fa-solid fa-trash'></i></a>";
+            echo "<a href='components/deletePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='delete fa-solid fa-trash'></i></a>";
 
-        echo "<a href='components/Pokemon.php?id=". $elemento["IDPokemon"] . "' ><i class='fa-solid fa-eye'></i></a>";
+            echo "<a href='components/Pokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='fa-solid fa-eye'></i></a>";
 
-        echo '</td>';
+            echo '</td>';
 
-        echo ' </tr>';
+            echo ' </tr>';
+        }
+
     }
 
-}
-
-// Cerrar la conexión con la base de datos
-mysqli_close($conexion);
+    // Cerrar la conexión con la base de datos
+    mysqli_close($conexion);
+    ?>
+    </tbody>
+</table>

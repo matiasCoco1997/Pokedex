@@ -2,76 +2,57 @@
 
 <html lang="en">
 
-    <body>
-        <?php
-            include("components/header.php");
-        ?>
+<body>
+<?php
+include("components/header.php");
+?>
 
-        <main>
+<main>
 
-            <section class="buscadorDePokemones">
+    <section class="buscadorDePokemones">
 
-                <article>
+        <article>
 
-                    <form method='GET' enctype='application/x-www-form-urlencoded' action='index.php'>
-                        <input type="text" placeholder="Ingrese el nombre, tipo o número de Pokemon" name="itemABuscar" required>
+            <form method='GET' enctype='application/x-www-form-urlencoded' action='index.php'>
+                <input type="text" placeholder="Ingrese el nombre, tipo o número de Pokemon" name="itemABuscar"
+                       required>
 
-                        <button type="submit" name="busqueda">¿Quién es este Pokemon?</button>
-                    </form>
+                <button type="submit" name="busqueda">¿Quién es este Pokemon?</button>
+            </form>
 
-                </article>
+        </article>
 
-            </section>
+    </section>
 
-            <section class="tablaDePokemones">
+    <section class="tablaDePokemones">
 
-                <article>
+        <article>
 
-                    <h2>Listado de Pokemones</h2>
+            <?php
+                if (empty($_REQUEST)) {
+                    include('components/funcionTraerPokemones.php');
+                }
 
-                    <table>
+                if (isset($_GET["itemABuscar"])) {
+                    include('components/funcionTraerPokemonesBuscados.php');
+                }
+            ?>
 
-                        <thead>
-                            <tr>
-                                <th>Imagen</th>
-                                <th>Tipo</th>
-                                <th>N°</th>
-                                <th>Nombre</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
+        </article>
 
-                        <tbody>
-                            <?php
+        <article class="nuevoPokemonContenedor">
 
-                            if(empty($_REQUEST)){
-                                include('components/funcionTraerPokemones.php');
-                            }
+            <a href="components/newPokemon.php" class="nuevoPokemon" type="submit" name="nuevoPokemon">Nuevo Pokemon</a>
 
-                            if(isset($_GET["itemABuscar"])){
-                                include('components/funcionTraerPokemonesBuscados.php');
-                            }
+        </article>
 
-                            ?>
-                        </tbody>
+    </section>
 
-                    </table>
+</main>
 
-                </article>
+<?php
+include("components/footer.php");
+?>
 
-                <article class="nuevoPokemonContenedor">
-
-                    <a href="components/newPokemon.php" class="nuevoPokemon" type="submit" name="nuevoPokemon">Nuevo Pokemon</a>
-
-                </article>
-
-            </section>
-
-        </main>
-
-        <?php
-            include("components/footer.php");
-        ?>
-
-    </body>
+</body>
 </html>
