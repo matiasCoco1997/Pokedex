@@ -53,11 +53,15 @@ else {
 
         echo "<td class='tipo'>" . $elemento["nombre"] . "</td>";
 
-        echo '<td class="acciones">
-                            <a href="components/updatePokemon.php?id="<? php echo $elemento["IDPokemon"]?><i class="update fa-solid fa-pen-to-square"></i></a>
-                            <a href="components/deletePokemon.php?id="<? php echo $elemento["IDPokemon"]?><i class="delete fa-solid fa-trash"></i></a>
-                            <a href="components/Pokemon.php?id="<? php echo $elemento["IDPokemon"]?><i class="fa-solid fa-eye"></i></a>
-                  </td>';
+        echo "<td class='acciones'>";
+
+            echo "<a href='components/updatePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='update fa-solid fa-pen-to-square'></i></a>";
+
+            echo "<a href='components/deletePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='delete fa-solid fa-trash'></i></a>";
+
+            echo "<a href='components/Pokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='fa-solid fa-eye'></i></a>";
+
+        echo '</td>';
         echo ' </tr>';
     }
 
