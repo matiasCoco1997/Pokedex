@@ -9,7 +9,7 @@ include("header.php");
 
 <main>
 
-    <section class="creacionDePokemon">
+    <section class="formPokemon">
 
         <article>
 
@@ -63,9 +63,6 @@ include("footer.php");
 
 </body>
 </html>
-
-
-
 
 <?php
 //Establecer parametros para la conexion a la base de datos
