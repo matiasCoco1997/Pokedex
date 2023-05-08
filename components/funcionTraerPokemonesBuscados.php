@@ -34,8 +34,8 @@
         echo "<td class='tipo'>" . $elemento["nombre"] . "</td>";
 
         echo '<td class="acciones">
-                        <a href="components/updatePokemon.php"><i class="update fa-solid fa-pen-to-square"></i></a>
-                        <a href="components/deletePokemon.php"><i class="delete fa-solid fa-trash"></i></a>
+                        <a href="components/updatePokemon.php?id="<? php echo $elemento["IDPokemon"]?>><i class="update fa-solid fa-pen-to-square"></i></a>
+                        <a href="components/deletePokemon.php?id="<? php echo $elemento["IDPokemon"]?>><i class="delete fa-solid fa-trash"></i></a>
               </td>';
         echo ' </tr>';
     }

@@ -312,8 +312,8 @@ td a{
     height: 50px;
 }
 
-/**************************************************      CONTENIDO CREACIONPOKEMON PHP      **************************************************/
-.creacionDePokemon{
+/**************************************************      CONTENIDO FORM CREACION POKEMON Y MODIFICAR POKEMON PHP      **************************************************/
+.formPokemon{
     width: 100%;
     margin-top: 20px;
     padding: 20px;
@@ -321,12 +321,12 @@ td a{
 
 }
 
-.creacionDePokemon article{
+.formPokemon article{
     width: 100%;
     height: 100%;
 }
 
-.creacionDePokemon form{
+.formPokemon form{
     min-height: 550px;
     padding: 10px;
     height: 100%;
@@ -341,7 +341,7 @@ td a{
     color: white;
 }
 
-.creacionDePokemon form div{
+.formPokemon form div{
     width: 90%;
     border: 3px solid white;
     padding: 10px;
@@ -350,26 +350,26 @@ td a{
     margin-bottom: 10px;
 }
 
-.creacionDePokemon form label{
+.formPokemon form label{
     width: 100%;
     font-weight: bold;
 }
 
-.creacionDePokemon form input{
+.formPokemon form input{
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
     margin-top: 10px;
 }
 
-.creacionDePokemon form select{
+.formPokemon form select{
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
     margin-top: 10px;
 }
 
-.creacionDePokemon form button{
+.formPokemon form button{
     width: 60%;
     margin-bottom: 20px;
     padding: 10px;
@@ -379,6 +379,10 @@ td a{
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.visualizacion-imagen{
+    width: 50px;
 }
 
 /**************************************************      FOOTER      **************************************************/
@@ -501,7 +505,7 @@ footer h4{
 /**************************************************      PANTALLAS GRANDES      **************************************************/
 @media (min-width: 1024px) {
 
-    .creacionDePokemon form{
+    .formPokemon form{
         min-height: 680px;
     }
 
