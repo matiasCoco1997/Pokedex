@@ -10,7 +10,9 @@ if(!empty($_POST['user'])&&!empty($_POST['password'])){
     $posibleContrasenia = md5($_POST['password']);
     $sql = "SELECT * FROM `usuarios` WHERE `nombreUsuario`='$posibleUsuario'";
     $query = mysqli_query($conexion,$sql) or die("Fallo en la consulta");
+
     if(mysqli_num_rows($query) > 0){
+
         $datos = mysqli_fetch_assoc($query);
         $contraseniabbdd = $datos['contrasenia'];
         $nombreUsuario = $datos['nombre'];
@@ -27,6 +29,7 @@ if(!empty($_POST['user'])&&!empty($_POST['password'])){
             header("location:../index.php");
             exit();
         }
+
     }else{
         $_SESSION["error"]="constraseña";
         setcookie("seguridad",0,time()-900);
