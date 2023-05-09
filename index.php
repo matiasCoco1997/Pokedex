@@ -1,6 +1,8 @@
 <?php
 session_start();
-$hash = file_get_contents("components/seguridad.txt");
+if(file_exists("components/seguridad.txt")){
+    $hash = file_get_contents("components/seguridad.txt");
+}
 ?>
 <!DOCTYPE html>
 
