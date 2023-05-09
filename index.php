@@ -45,7 +45,7 @@ include("components/header.php");
 
         <article class="nuevoPokemonContenedor">
 
-            <a href="components/newPokemon.php" class="nuevoPokemon" type="submit" name="nuevoPokemon">Nuevo Pokemon</a>
+            <a href="components/newPokemon.php" class="nuevoPokemon" type="submit">Nuevo Pokemon</a>
 
         </article>
 

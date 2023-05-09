@@ -6,4 +6,3 @@
     echo("<input type='password' name='password' placeholder='Contraseña' required>");
     echo("<button type='submit' name='submit'>Ingresar</button>");
     echo("</form>");
-?>

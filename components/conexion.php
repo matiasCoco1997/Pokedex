@@ -13,4 +13,3 @@ if (!$conexion) {
     var_dump($conexion);
     die("La conexión falló: " . mysqli_connect_error());
 };
-?>
