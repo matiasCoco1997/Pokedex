@@ -17,7 +17,7 @@ include("components/header.php");
 
         <article>
 
-            <form method='POST' enctype='application/x-www-form-urlencoded' action='index.php'>
+            <form method='GET' enctype='application/x-www-form-urlencoded' action='index.php'>
                 <input type="text" placeholder="Ingrese el nombre, tipo o número de Pokemon" name="itemABuscar" required>
 
                 <button type="submit" name="busqueda">¿Quién es este Pokemon?</button>
