@@ -65,19 +65,8 @@ include("footer.php");
 </html>
 
 <?php
-//Establecer parametros para la conexion a la base de datos
-$serverName = "localhost";
-$username = "root";
-$password = "";
-$database = "pokedex";
 
-// Establecer la conexión con la base de datos
-$conexion = mysqli_connect($serverName, $username, $password, $database);
-
-// Verificar si la conexión es exitosa
-if (!$conexion) {
-    die("La conexión falló: " . mysqli_connect_error());
-}
+include_once("conexion.php");
 
 //FALTA LEVANTAR LA OPCION DE LA IMAGEN (para pasarle la ruta de un archivo que yo suba)
 $tipo = $_POST['opcion'] ?? $_POST['opcion'];

@@ -1,5 +1,5 @@
 <?php
-echo "
+echo ("
 
         <head>
             <meta charset='UTF-8'>
@@ -18,21 +18,20 @@ echo "
             <?php
                 //PONER LA DIRECCION DEL INICIO en pokemon.php
             ?>
-            <h1>Pokédex</h1>
+            <h1>Pokédex</h1>");
+            
+            if(!empty($_GET["error"])){
+                echo("<p>Usuario o contraseña no pueden estar vacios</p>");
+            }
+            if(!empty($_SESSION["error"])){
+                echo("<p>Usuario o contraseña incorrecta</p>");
+            }
+            if (!empty($_COOKIE['seguridad']) && !empty($_SESSION["nombreUsuario"])) {
+                if ($_COOKIE['seguridad'] == $hash) {
+                    echo("<h2>Bienvenido " .$_SESSION["nombreUsuario"] ."!</h2>");
+                }
+            }else{
+                echo(include_once('login.php'));
+            }
 
-            <a id='menu-icon'>Login</a>
-
-            <form id='login-form' class='formLogin' method='POST' enctype='application/x-www-form-urlencoded' action=''>
-
-                <label>Login</label>
-
-                <input type='text' name='user' placeholder='Usuario' required>
-
-                <input type='password' name='password' placeholder='Contraseña' required>
-
-                <button type='submit' name='submit'>Ingresar</button>
-
-            </form>
-
-        </header>
-";
+            echo("</header>");

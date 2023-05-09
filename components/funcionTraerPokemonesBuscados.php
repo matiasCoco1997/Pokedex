@@ -1,16 +1,5 @@
 <?php
-//Establecer parametros para la conexion a la base de datos
-$serverName = "localhost";
-$username = "root";
-$password = "";
-$database = "pokedex";
-// Establecer la conexión con la base de datos
-$conexion = mysqli_connect($serverName, $username, $password, $database);
-
-// Verificar si la conexión es exitosa
-if (!$conexion) {
-    die("La conexión falló: " . mysqli_connect_error());
-}
+include_once("conexion.php");
 
 // Obtener el término de búsqueda ingresado por el usuario
 $busqueda = $_GET["itemABuscar"];
@@ -34,9 +23,13 @@ else {
         <th> Imagen</th>
         <th> Tipo</th>
         <th> N°</th>
-        <th> Nombre</th>
-        <th> Acciones</th>
-    </tr>
+        <th> Nombre</th>";
+       if(!empty($_COOKIE['seguridad']) && !empty($_SESSION["nombreUsuario"])){
+            if($_COOKIE['seguridad']==$hash){
+                echo("<th> Acciones</th>");
+            }
+        }
+    echo"</tr>
     </thead>
     
     <tbody>";
@@ -53,15 +46,15 @@ else {
 
         echo "<td class='tipo'>" . $elemento["nombre"] . "</td>";
 
-        echo "<td class='acciones'>";
-
-            echo "<a href='components/updatePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='update fa-solid fa-pen-to-square'></i></a>";
-
-            echo "<a href='components/deletePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='delete fa-solid fa-trash'></i></a>";
-
-            echo "<a href='components/Pokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='fa-solid fa-eye'></i></a>";
-
-        echo '</td>';
+        if(!empty($_COOKIE['seguridad']) && !empty($_SESSION["nombreUsuario"])){
+            if($_COOKIE['seguridad']==$hash){
+                echo "<td class='acciones'>";
+                echo "<a href='components/updatePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='update fa-solid fa-pen-to-square'></i></a>";
+                echo "<a href='components/deletePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='delete fa-solid fa-trash'></i></a>";
+                echo "<a href='components/Pokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='fa-solid fa-eye'></i></a>";
+                echo '</td>';
+            }
+        }
         echo ' </tr>';
     }
 
