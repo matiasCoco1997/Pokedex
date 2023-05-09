@@ -128,9 +128,7 @@ if (empty($_POST)) {
                     </select>
                 </div>
 
-                <div>
                     <input type="hidden" name="id" value="<?php echo $id ?>">
-                </div>
 
                 <div>
                     <label for="img-numero-Pokemon">Ingrese el número de Pokemon:</label>
