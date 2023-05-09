@@ -15,12 +15,7 @@ $resultado = $conexion->query($sql);
         <th> Tipo</th>
         <th> N°</th>
         <th> Nombre</th>
-        <?php
-        if(!empty($_COOKIE['seguridad']) && !empty($_SESSION["nombreUsuario"])){
-            if($_COOKIE['seguridad']==$hash){
-                echo("<th> Acciones</th>");
-            }
-        }?>
+        <th> Acciones</th>
     </tr>
     </thead>
 
@@ -40,19 +35,20 @@ $resultado = $conexion->query($sql);
 
             echo "<td class='tipo'>" . $elemento["nombre"] . "</td>";
 
+
+                    echo "<td class='acciones'>";
             if(!empty($_COOKIE['seguridad']) && !empty($_SESSION["nombreUsuario"])){
                 if($_COOKIE['seguridad']==$hash){
-                    echo "<td class='acciones'>";
-
                     echo "<a href='components/updatePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='update fa-solid fa-pen-to-square'></i></a>";
 
                     echo "<a href='components/deletePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='delete fa-solid fa-trash'></i></a>";
 
+                }
+            }
+
                     echo "<a href='components/Pokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='fa-solid fa-eye'></i></a>";
 
                     echo '</td>';
-                        }
-            }
             echo ' </tr>';
         }
 

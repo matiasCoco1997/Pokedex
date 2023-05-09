@@ -42,13 +42,9 @@ include("components/header.php");
             ?>
 
         </article>
-
-        <article class="nuevoPokemonContenedor">
-
-            <a href="components/newPokemon.php" class="nuevoPokemon" type="submit" name="nuevoPokemon">Nuevo Pokemon</a>
-
-        </article>
-
+        <?php
+        include("components/nuevoPokemon.php");
+        ?>
     </section>
 
 </main>

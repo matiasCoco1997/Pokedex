@@ -14,13 +14,16 @@ if(!empty($_POST['user'])&&!empty($_POST['password'])){
         $datos = mysqli_fetch_assoc($query);
         $contraseniabbdd = $datos['contrasenia'];
         $nombreUsuario = $datos['nombre'];
+        $isAdmin = $datos['isAdmin'];
         if($posibleContrasenia == $contraseniabbdd){
             session_regenerate_id(true);
             $_SESSION["nombreUsuario"] = $nombreUsuario;
             $hash = md5(time());
-            file_put_contents("seguridad.txt",$hash);
-            setcookie("seguridad",$hash,time()+900, '/');
             unset($_SESSION["error"]);
+            if($isAdmin == 1){
+                file_put_contents("seguridad.txt",$hash);
+                setcookie("seguridad",$hash,time()+900, '/');
+            }
             header("location:../index.php");
             exit();
         }

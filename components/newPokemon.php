@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<body>
 <?php
+session_start();
+
 include("header.php");
-?>
+
+if (!empty($_COOKIE['seguridad']) && !empty($_SESSION["nombreUsuario"])) {
+
+    if ($_COOKIE['seguridad'] == $hash) {
+echo'
 
 <main>
 
@@ -13,7 +14,7 @@ include("header.php");
 
         <article>
 
-            <form method='POST' enctype='multipart/form-data' action='newPokemon.php'>
+            <form method="POST" enctype="multipart/form-data" action="newPokemon.php">
 
                 <div>
                     <label for="img-Pokemon">Ingrese la imagen del Pokemon:</label>
@@ -55,16 +56,15 @@ include("header.php");
 
     </section>
 
-</main>
+</main>';
+    }
+}
 
-<?php
 include("footer.php");
-?>
 
-</body>
-</html>
+echo"</body>
+    </html>";
 
-<?php
 
 include_once("conexion.php");
 
@@ -77,25 +77,26 @@ $isEnabled = 1;
 
 $directorio = "../../Pokedex/src/images/";
 
-if (isset($_FILES["img-Pokemon"])) {
+        if (isset($_FILES["img-Pokemon"])) {
 
-    $imagen = $_FILES["img-Pokemon"];
+            $imagen = $_FILES["img-Pokemon"];
 
-    $ruta_destino = $directorio  . basename($_FILES["img-Pokemon"]["name"]);
+            $ruta_destino = $directorio . basename($_FILES["img-Pokemon"]["name"]);
 
-    if (move_uploaded_file($imagen["tmp_name"], $ruta_destino)) {
+            if (move_uploaded_file($imagen["tmp_name"], $ruta_destino)) {
 
-        // Construir la consulta SQL
-        $sql = "INSERT INTO pokemones (`imagen`, `nombre`, `numero`, `tipo`, `descripcion` ,`isEnabled`) VALUES ( '$ruta_destino', '$nombre', '$numero', '$tipo', '$descripcion', '$isEnabled')";
+                // Construir la consulta SQL
+                $sql = "INSERT INTO pokemones (`imagen`, `nombre`, `numero`, `tipo`, `descripcion` ,`isEnabled`) VALUES ( '$ruta_destino', '$nombre', '$numero', '$tipo', '$descripcion', '$isEnabled')";
 
-        $conexion->query($sql);
+                $conexion->query($sql);
 
-        header("Location: ../index.php");
+                header("Location: ../index.php");
 
-    } else {
-        echo "<p>Ha ocurrido un error al subir la imagen.</p>";
-    }
-}
+            } else {
+                echo "<p>Ha ocurrido un error al subir la imagen.</p>";
+            }
+        }
+
 
 // Cerrar la conexión con la base de datos
 mysqli_close($conexion);

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("conexion.php");
 
 // Obtener el término de búsqueda ingresado por el usuario
@@ -23,13 +24,8 @@ else {
         <th> Imagen</th>
         <th> Tipo</th>
         <th> N°</th>
-        <th> Nombre</th>";
-       if(!empty($_COOKIE['seguridad']) && !empty($_SESSION["nombreUsuario"])){
-            if($_COOKIE['seguridad']==$hash){
-                echo("<th> Acciones</th>");
-            }
-        }
-    echo"</tr>
+        <th> Nombre</th>
+        </tr>
     </thead>
     
     <tbody>";
@@ -46,15 +42,18 @@ else {
 
         echo "<td class='tipo'>" . $elemento["nombre"] . "</td>";
 
+                echo "<td class='acciones'>";
+
         if(!empty($_COOKIE['seguridad']) && !empty($_SESSION["nombreUsuario"])){
             if($_COOKIE['seguridad']==$hash){
-                echo "<td class='acciones'>";
                 echo "<a href='components/updatePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='update fa-solid fa-pen-to-square'></i></a>";
                 echo "<a href='components/deletePokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='delete fa-solid fa-trash'></i></a>";
-                echo "<a href='components/Pokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='fa-solid fa-eye'></i></a>";
-                echo '</td>';
+
+
             }
         }
+                echo "<a href='components/Pokemon.php?id=" . $elemento["IDPokemon"] . "' ><i class='fa-solid fa-eye'></i></a>";
+                echo '</td>';
         echo ' </tr>';
     }
 
