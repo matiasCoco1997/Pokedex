@@ -11,31 +11,30 @@ if(!empty($_POST['user'])&&!empty($_POST['password'])){
     $sql = "SELECT * FROM `usuarios` WHERE `nombreUsuario`='$posibleUsuario'";
     $query = mysqli_query($conexion,$sql) or die("Fallo en la consulta");
 
-    if(mysqli_num_rows($query) > 0){
+    if(mysqli_num_rows($query) > 0) {
 
         $datos = mysqli_fetch_assoc($query);
         $contraseniabbdd = $datos['contrasenia'];
         $nombreUsuario = $datos['nombre'];
         $isAdmin = $datos['isAdmin'];
-        if($posibleContrasenia == $contraseniabbdd){
+        if ($posibleContrasenia == $contraseniabbdd) {
             session_regenerate_id(true);
             $_SESSION["nombreUsuario"] = $nombreUsuario;
             $hash = md5(time());
             unset($_SESSION["error"]);
-            if($isAdmin == 1){
-                file_put_contents("seguridad.txt",$hash);
-                setcookie("seguridad",$hash,time()+900, '/');
+            if ($isAdmin == 1) {
+                file_put_contents("seguridad.txt", $hash);
+                setcookie("seguridad", $hash, time() + 900, '/');
             }
             header("location:../index.php");
             exit();
+        } else {
+            $_SESSION["error"] = "constraseña";
+            setcookie("seguridad", 0, time() - 900);
+            header("location:../index.php");
+            exit();
+
         }
-
-    }else{
-        $_SESSION["error"]="constraseña";
-        setcookie("seguridad",0,time()-900);
-        header("location:../index.php");
-        exit();
-
     }
 
 }else{
