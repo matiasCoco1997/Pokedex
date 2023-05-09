@@ -1,12 +1,16 @@
 <?php
 session_start();
 
+if(file_exists("seguridad.txt")){
+    $hash = file_get_contents("seguridad.txt");
+}
+
 include("header.php");
 
 if (!empty($_COOKIE['seguridad']) && !empty($_SESSION["nombreUsuario"])) {
 
     if ($_COOKIE['seguridad'] == $hash) {
-echo'
+echo '
 
 <main>
 
@@ -68,37 +72,41 @@ echo"</body>
 
 include_once("conexion.php");
 
-//FALTA LEVANTAR LA OPCION DE LA IMAGEN (para pasarle la ruta de un archivo que yo suba)
-$tipo = $_POST['opcion'] ?? $_POST['opcion'];
-$numero = $_POST['img-numero-Pokemon'] ?? $_POST['img-numero-Pokemon'];
-$nombre = $_POST['nombre-Pokemon'] ??$_POST['nombre-Pokemon'];
-$descripcion = $_POST['descripcion-Pokemon'] ?? $_POST['descripcion-Pokemon'];
-$isEnabled = 1;
+if(isset($_POST['opcion']) && isset($_POST['img-numero-Pokemon']) && isset($_POST['nombre-Pokemon']) && isset($_POST['descripcion-Pokemon'])){
 
-$directorio = "../../Pokedex/src/images/";
+    $tipo = $_POST['opcion'];
+    $numero = $_POST['img-numero-Pokemon'];
+    $nombre =  $_POST['nombre-Pokemon'];
+    $descripcion = $_POST['descripcion-Pokemon'];
+    $isEnabled = 1;
 
-        if (isset($_FILES["img-Pokemon"])) {
 
-            $imagen = $_FILES["img-Pokemon"];
+    $directorio = "../../Pokedex/src/images/";
 
-            $ruta_destino = $directorio . basename($_FILES["img-Pokemon"]["name"]);
+    if (isset($_FILES["img-Pokemon"])) {
 
-            if (move_uploaded_file($imagen["tmp_name"], $ruta_destino)) {
+        $imagen = $_FILES["img-Pokemon"];
 
-                // Construir la consulta SQL
-                $sql = "INSERT INTO pokemones (`imagen`, `nombre`, `numero`, `tipo`, `descripcion` ,`isEnabled`) VALUES ( '$ruta_destino', '$nombre', '$numero', '$tipo', '$descripcion', '$isEnabled')";
+        $ruta_destino = $directorio . basename($_FILES["img-Pokemon"]["name"]);
 
-                $conexion->query($sql);
+        if (move_uploaded_file($imagen["tmp_name"], $ruta_destino)) {
 
-                header("Location: ../index.php");
+            // Construir la consulta SQL
+            $sql = "INSERT INTO pokemones (`imagen`, `nombre`, `numero`, `tipo`, `descripcion` ,`isEnabled`) VALUES ( '$ruta_destino', '$nombre', '$numero', '$tipo', '$descripcion', '$isEnabled')";
 
-            } else {
-                echo "<p>Ha ocurrido un error al subir la imagen.</p>";
-            }
+            $conexion->query($sql);
+
+            header("Location: ../index.php");
+
+        } else {
+            echo "<p>Ha ocurrido un error al subir la imagen.</p>";
         }
+    }
 
 
 // Cerrar la conexión con la base de datos
-mysqli_close($conexion);
+    mysqli_close($conexion);
+}
+
 
 

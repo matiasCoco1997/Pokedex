@@ -30,12 +30,14 @@ if (empty($_POST)) {
         $descripcion = $fila['descripcion'];
     }
 } else {
-    $id = $_POST['id'] ?? $_POST['id'];
-    $tipo = $_POST['opcion'] ?? $_POST['opcion'];
-    $numero = $_POST['img-numero-Pokemon'] ?? $_POST['img-numero-Pokemon'];
-    $nombre = $_POST['nombre-Pokemon'] ?? $_POST['nombre-Pokemon'];
-    $descripcion = $_POST['descripcion-Pokemon'] ?? $_POST['descripcion-Pokemon'];
+    $id = $_POST['id'];
+    $tipo = $_POST['opcion'];
+    $numero = $_POST['img-numero-Pokemon'];
+    $nombre =  $_POST['nombre-Pokemon'];
+    $descripcion = $_POST['descripcion-Pokemon'];
     $isEnabled = 1;
+
+
 
     $directorio = "../../Pokedex/src/images/";
 
@@ -44,12 +46,15 @@ if (empty($_POST)) {
 
     if ($_FILES["img-Pokemon"]["name"] == "") {
         echo "No se recibió ningún archivo en la solicitud POST";
-    } else {
+    }
+    else {
         $imagen = $_FILES["img-Pokemon"];
 
         $ruta_destino = $directorio . basename($_FILES["img-Pokemon"]["name"]);
 
         $sql .= " imagen = '$ruta_destino',";
+
+        move_uploaded_file($imagen["tmp_name"], $ruta_destino);
     }
 
     if (!empty($nombre)) {
