@@ -34,10 +34,10 @@ echo ("
                 } else{
                     setcookie("seguridad",0,time()-1000, '/');
                     session_destroy();
-                    echo(include_once('login.php'));
+                    include_once('login.php');
                 }
             }else{
-                echo(include_once('login.php'));
+                include_once('login.php');
             }
 
             echo("</header>");

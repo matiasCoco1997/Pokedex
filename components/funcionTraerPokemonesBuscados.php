@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("conexion.php");
 
 // Obtener el término de búsqueda ingresado por el usuario
@@ -21,10 +20,11 @@ else {
 <table>
     <thead>
     <tr>
-        <th> Imagen</th>
-        <th> Tipo</th>
-        <th> N°</th>
-        <th> Nombre</th>
+        <th>Imagen</th>
+        <th>Tipo</th>
+        <th>N°</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
         </tr>
     </thead>
     
@@ -36,7 +36,7 @@ else {
 
         echo "<td class='pokemonImg'><img src=" . $elemento["imagen"] . " alt=" . $elemento["nombre"] . "></td>";
 
-        echo "<td class='tipo'><img src=" . $elemento["imagen"] . " alt='Tipo_de_pokemon'></td>";
+        echo "<td class='tipo'><img src=" . $elemento["tipo"] . " alt='Tipo_de_pokemon'></td>";
 
         echo "<td class='tipo'>" . $elemento["numero"] . "</td>";
 

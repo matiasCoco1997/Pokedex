@@ -1,6 +1,8 @@
 <?php
 session_start();
-$hash = file_get_contents("components/seguridad.txt");
+if(file_exists("components/seguridad.txt")){
+    $hash = file_get_contents("components/seguridad.txt");
+}
 ?>
 <!DOCTYPE html>
 
@@ -18,7 +20,7 @@ include("components/header.php");
         <article>
 
             <form method='GET' enctype='application/x-www-form-urlencoded' action='index.php'>
-                <input type="text" placeholder="Ingrese el nombre, tipo o número de Pokemon" name="itemABuscar" required>
+                <input type="text" placeholder="Ingrese el nombre, tipo o número de Pokemon" name="itemABuscar">
 
                 <button type="submit" name="busqueda">¿Quién es este Pokemon?</button>
             </form>
