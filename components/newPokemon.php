@@ -61,9 +61,6 @@ echo '
     </section>
 
 </main>';
-    }
-}
-
 include("footer.php");
 
 echo"</body>
@@ -107,6 +104,14 @@ if(isset($_POST['opcion']) && isset($_POST['img-numero-Pokemon']) && isset($_POS
 // Cerrar la conexión con la base de datos
     mysqli_close($conexion);
 }
+
+
+    }
+}else{
+    header("location:../index.php");
+}
+?>
+
 
 
 

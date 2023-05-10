@@ -3,7 +3,7 @@
 $serverName = "localhost";
 $username = "root";
 $password = "";
-$database = "pokedex";
+$database = "pokedex_Grupo3";
 
 // Establecer la conexión con la base de datos
 $conexion = mysqli_connect($serverName, $username, $password, $database);

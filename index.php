@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("components/database.php");
 if(file_exists("components/seguridad.txt")){
     $hash = file_get_contents("components/seguridad.txt");
 }

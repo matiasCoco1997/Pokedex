@@ -4,10 +4,10 @@ if($_SESSION["nombreUsuario"]){
     setcookie("seguridad",0,time()-1000, '/');
     unlink("seguridad.txt");
     session_destroy();
-    header("location:../index.php");
+    header("location:../../Pokedex/index.php");
     exit();
     }else{
-            header("location:../index.php");
+            header("location:../../Pokedex/index.php");
             exit();
 }
 ?>

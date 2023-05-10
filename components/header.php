@@ -29,7 +29,7 @@ echo ("
             if (!empty($_SESSION["nombreUsuario"])) {
                 if ($_COOKIE['seguridad'] == $hash) {
                     echo("<h2>Bienvenido " .$_SESSION["nombreUsuario"] ."!</h2>");
-                    echo"<div><a href='components/cerrarSesion.php'>Cerrar sesión</a></div>";
+                    echo"<div><a href='../../Pokedex/components/cerrarSesion.php'>Cerrar sesión</a></div>";
                     echo"<br>";
                 } else{
                     setcookie("seguridad",0,time()-1000, '/');
