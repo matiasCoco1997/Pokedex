@@ -14,7 +14,7 @@ echo ("
 
         <header>
 
-            <a class='logo' href='../../Pokedex/index.php'><img src='../../Pokedex/src/images/logo-pokebola.png' alt='alt'></a>
+            <a class='logo' href='../../Pokedex/index.php'><img src='../../Pokedex/src/images/logo-pokebola.png' alt='Pokebola'></a>
             <?php
                 //PONER LA DIRECCION DEL INICIO en pokemon.php
             ?>
