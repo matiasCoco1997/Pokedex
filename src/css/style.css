@@ -1,22 +1,23 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
 
-body{
+body {
     min-width: 375px;
     background-image: url("../images/fondo-pokemones.png");
     background-repeat: repeat;
     background-position-x: 250px;
 }
 
-main{
+main {
     min-height: 550px;
 }
+
 /**************************************************      HEADER      **************************************************/
-header{
+header {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -27,28 +28,28 @@ header{
 }
 
 
-header a{
-    padding:10px;
+header a {
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
 
-header a:hover{
+header a:hover {
     background-color: red;
     border-radius: 5px;
 }
 
-header .logo:hover{
+header .logo:hover {
     background-color: black;
 }
 
-header .icono{
+header .icono {
     font-size: 25px;
 }
 
-.formLogin{
+.formLogin {
     display: none;
 }
 
@@ -62,7 +63,7 @@ header .icono{
     padding-right: 20px;
 }
 
-.formLogin input{
+.formLogin input {
     width: 100%;
     margin-top: 10px;
     height: 30px;
@@ -71,7 +72,7 @@ header .icono{
     border-radius: 10px;
 }
 
-.formLogin button{
+.formLogin button {
     width: 60%;
     margin-top: 10px;
     height: 30px;
@@ -82,12 +83,12 @@ header .icono{
     cursor: pointer;
 }
 
-.formLogin button:hover{
+.formLogin button:hover {
     background-color: red;
     color: white;
 }
 
-.logo{
+.logo {
     height: 60px;
     padding: 5px;
     display: flex;
@@ -95,7 +96,7 @@ header .icono{
     justify-content: center;
 }
 
-.logo img{
+.logo img {
     height: 100%;
     transition: transform 2s ease-in-out;
 }
@@ -104,23 +105,24 @@ header .icono{
     transform: rotate(360deg);
 }
 
-h1{
+h1 {
     width: 65%;
     text-align: center;
     font-size: 2.5em;
 }
+
 /**************************************************      CONTENIDO INDEX PHP      **************************************************/
-.buscadorDePokemones{
+.buscadorDePokemones {
     width: 100%;
     padding: 3%;
     margin-top: 40px;
 }
 
-.buscadorDePokemones article{
+.buscadorDePokemones article {
     width: 100%;
 }
 
-.mensajeDeBusqueda{
+.mensajeDeBusqueda {
     color: white;
     background-color: rgba(0, 0, 0);
     border-radius: 10px;
@@ -131,7 +133,7 @@ h1{
     text-align: center;
 }
 
-.buscadorDePokemones form{
+.buscadorDePokemones form {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -139,7 +141,7 @@ h1{
     align-items: center;
 }
 
-.buscadorDePokemones form input{
+.buscadorDePokemones form input {
     width: 100%;
     padding: 10px;
     border-radius: 1em;
@@ -149,12 +151,12 @@ h1{
     outline: none;
 }
 
-.buscadorDePokemones form input::placeholder{
+.buscadorDePokemones form input::placeholder {
     color: black;
     font-weight: bold;
 }
 
-.buscadorDePokemones form button{
+.buscadorDePokemones form button {
     width: 100%;
     padding: 10px;
     border: none;
@@ -167,11 +169,11 @@ h1{
 }
 
 
-.buscadorDePokemones form button:hover{
+.buscadorDePokemones form button:hover {
     background-color: red;
 }
 
-.tablaDePokemones{
+.tablaDePokemones {
     padding: 3%;
     min-height: 500px;
     display: flex;
@@ -180,11 +182,11 @@ h1{
     align-items: flex-end;
 }
 
-.tablaDePokemones article{
+.tablaDePokemones article {
     width: 100%;
 }
 
-.tablaDePokemones h2{
+.tablaDePokemones h2 {
     text-align: center;
     padding: 5px;
     width: 100%;
@@ -192,17 +194,17 @@ h1{
     background-color: red;
 }
 
-.tablaDePokemones table{
+.tablaDePokemones table {
     border-collapse: collapse;
     border: 2px solid red;
     width: 100%;
 }
 
-.pokemonImg img{
+.pokemonImg img {
     max-width: 40px;
 }
 
-.tipo img{
+.tipo img {
     max-width: 20px;
 }
 
@@ -216,38 +218,45 @@ th, td {
     color: black;
 }
 
-th{
+th {
     background-color: black;
     color: white;
     height: 60px;
 }
 
-.fila{
+.fila {
     height: 90px;
 }
 
-td a{
+td a {
     text-decoration: none;
     color: black;
     cursor: pointer;
     margin: 4px;
 }
 
-.update:hover{
+td button {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    margin: 4px;
+}
+
+.update:hover {
     color: #0000fa;
 }
 
-.delete:hover{
+.delete:hover {
     color: red;
 }
 
-.nuevoPokemonContenedor{
+.nuevoPokemonContenedor {
     text-align: center;
     margin-top: 20px;
     width: 100%;
 }
 
-.nuevoPokemon{
+.nuevoPokemon {
     display: block;
     width: 100%;
     background-color: black;
@@ -260,12 +269,12 @@ td a{
     text-decoration: none;
 }
 
-.nuevoPokemon:hover{
+.nuevoPokemon:hover {
     background-color: red;
 }
 
 /**************************************************      CONTENIDO POKEMON PHP      **************************************************/
-.imgPokemon{
+.imgPokemon {
     background-color: rgba(0, 0, 0, 0.75);
     border: red solid 5px;
     padding: 20px;
@@ -282,12 +291,12 @@ td a{
     margin-bottom: 10px;
 }
 
-.imgPokemon img{
+.imgPokemon img {
     height: 100%;
     max-width: 400px;
 }
 
-.contenedorPokemon div{
+.contenedorPokemon div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -301,17 +310,17 @@ td a{
     border-radius: 30px;
 }
 
-.contenedorPokemon div h2{
+.contenedorPokemon div h2 {
     display: inline;
 }
 
-.descripcionPokemon{
+.descripcionPokemon {
     margin-top: 10px;
     width: 90%;
     padding: 10px;
 }
 
-.imgTipoPokemon{
+.imgTipoPokemon {
     width: 15%;
     padding: 5px;
     display: flex;
@@ -319,12 +328,12 @@ td a{
     justify-content: center;
 }
 
-.imgTipoPokemon img{
+.imgTipoPokemon img {
     height: 50px;
 }
 
 /**************************************************      CONTENIDO FORM CREACION POKEMON Y MODIFICAR POKEMON PHP      **************************************************/
-.formPokemon{
+.formPokemon {
     width: 100%;
     margin-top: 20px;
     padding: 20px;
@@ -332,12 +341,12 @@ td a{
 
 }
 
-.formPokemon article{
+.formPokemon article {
     width: 100%;
     height: 100%;
 }
 
-.formPokemon form{
+.formPokemon form {
     min-height: 550px;
     padding: 10px;
     height: 100%;
@@ -352,7 +361,7 @@ td a{
     color: white;
 }
 
-.formPokemon form div{
+.formPokemon form div {
     width: 90%;
     border: 3px solid white;
     padding: 10px;
@@ -361,55 +370,55 @@ td a{
     margin-bottom: 10px;
 }
 
-.formPokemon form label{
+.formPokemon form label {
     width: 100%;
     font-weight: bold;
 }
 
-.formPokemon form input{
+.formPokemon form input {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
     margin-top: 10px;
 }
 
-.formPokemon form select{
+.formPokemon form select {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
     margin-top: 10px;
 }
 
-.formPokemon form button{
+.formPokemon form button {
     width: 60%;
     margin-bottom: 20px;
     padding: 10px;
     background-color: red;
     color: white;
-    border:none;
+    border: none;
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
 }
 
-.visualizacion-imagen{
+.visualizacion-imagen {
     width: 50px;
 }
 
 /**************************************************      FOOTER      **************************************************/
-footer{
+footer {
     background-color: black;
     color: white;
     margin-top: 20px;
     padding: 10px;
 }
 
-footer h5{
+footer h5 {
     text-align: center;
     padding: 10px;
 }
 
-footer h4{
+footer h4 {
     text-align: center;
     padding: 10px;
 }
@@ -417,17 +426,17 @@ footer h4{
 /**************************************************      PANTALLAS MEDIANAS      **************************************************/
 @media (min-width: 768px) {
 
-    .buscadorDePokemones{
+    .buscadorDePokemones {
         width: 100%;
         padding: 3%;
         margin-top: 20px;
     }
 
-    .buscadorDePokemones article{
+    .buscadorDePokemones article {
         width: 100%;
     }
 
-    .buscadorDePokemones form{
+    .buscadorDePokemones form {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
@@ -435,12 +444,12 @@ footer h4{
         align-items: center;
     }
 
-    .buscadorDePokemones form div{
+    .buscadorDePokemones form div {
         width: 70%;
     }
 
 
-    .buscadorDePokemones form input{
+    .buscadorDePokemones form input {
         width: 70%;
         padding: 10px;
         border: 3px solid red;
@@ -448,12 +457,12 @@ footer h4{
         background-color: white;
     }
 
-    .buscadorDePokemones form input::placeholder{
+    .buscadorDePokemones form input::placeholder {
         color: rgba(128, 128, 128, 0.71);
         font-weight: normal;
     }
 
-    .buscadorDePokemones form button{
+    .buscadorDePokemones form button {
         width: 30%;
         padding: 10px;
         border: 3px solid red;
@@ -461,37 +470,37 @@ footer h4{
         background-color: red;
     }
 
-    .buscadorDePokemones form button:hover{
+    .buscadorDePokemones form button:hover {
         background-color: #ea5454;
         border: 3px solid #ea5454;
     }
 
-    .tablaDePokemones{
+    .tablaDePokemones {
         width: 100%;
         min-height: 550px;
     }
 
-    .tablaDePokemones article{
+    .tablaDePokemones article {
         width: 100%;
     }
 
-    .pokemonImg img{
+    .pokemonImg img {
         max-width: 80px;
     }
 
-    .tipo img{
+    .tipo img {
         max-width: 40px;
     }
 
-    td a{
+    td a {
         padding: 10px;
     }
 
-    td a i{
+    td a i {
         font-size: 22px;
     }
 
-    footer{
+    footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -499,13 +508,13 @@ footer h4{
         padding: 10px;
     }
 
-    footer h5{
+    footer h5 {
         text-align: center;
         padding: 10px;
         width: 50%;
     }
 
-    footer h4{
+    footer h4 {
         text-align: center;
         padding: 10px;
         width: 100%;
@@ -515,16 +524,16 @@ footer h4{
 /**************************************************      PANTALLAS GRANDES      **************************************************/
 @media (min-width: 1024px) {
 
-    .formPokemon form{
+    .formPokemon form {
         min-height: 680px;
     }
 
-    .formLogin.visible{
+    .formLogin.visible {
         width: 50%;
     }
 
 
-    .contenedorPokemon{
+    .contenedorPokemon {
         margin-top: 20px;
         height: 44.55em;
         display: grid;
@@ -535,12 +544,12 @@ footer h4{
 
     }
 
-    .imgTipoPokemon{
+    .imgTipoPokemon {
         width: auto;
         margin-right: 20px;
     }
 
-    .imgPokemon{
+    .imgPokemon {
         grid-area: img;
         align-self: center;
         justify-self: center;
@@ -552,13 +561,13 @@ footer h4{
         margin: 0px;
     }
 
-    .imgPokemon img{
+    .imgPokemon img {
         height: 100%;
         max-height: 300px;
         max-width: none;
     }
 
-    .contenedorPokemon div{
+    .contenedorPokemon div {
         grid-area: info;
         align-self: center;
         justify-self: center;
@@ -568,20 +577,21 @@ footer h4{
         border-radius: 30px;
     }
 
-    .contenedorPokemon h2{
+    .contenedorPokemon h2 {
         display: block;
     }
 
-    .contenedorPokemon .imgTipoPokemon{
+    .contenedorPokemon .imgTipoPokemon {
         height: 10%;
     }
 
-    .contenedorPokemon p{
+    .contenedorPokemon p {
         height: 80%;
     }
 
-    footer h5{
+    footer h5 {
         width: 25%;
     }
-
 }
+
+

@@ -16,7 +16,9 @@ foreach ($resultado as $elemento) {
         $sql = "UPDATE pokemones SET isEnabled = 0 WHERE IDPokemon =" . "$id";
         $conexion->query($sql);
 
-        header('Location: ../index.php');
+        echo $sql;
+
+        //header('Location: ../index.php');
     }
 
 }
@@ -24,3 +26,4 @@ foreach ($resultado as $elemento) {
 // Cerrar la conexión con la base de datos
 mysqli_close($conexion);
 ?>
+
